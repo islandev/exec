@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Created by ben on 16/8/1.
  * Your algorithm's runtime complexity must be in the order of O(log n).
+ * 九章的例子
  */
 public class SearchForARange {
 
