@@ -3,7 +3,7 @@ package com.qunar.ben.leetcode;
 /**
  * Created by ben on 16/8/1.
  */
-import java.lang.Math;
+
 public class WiggleSubsequence {
 
         public static  int wiggleMaxLength(int[] nums) {
