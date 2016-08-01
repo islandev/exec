@@ -1,6 +1,5 @@
 package com.qunar.ben.leetcode;
 
-import com.sun.tools.javac.util.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,33 +12,68 @@ import java.util.List;
  */
 public class SearchForARange {
 
-    public  static List<Integer> searchRange(int[] nums, int target) {
-        int  low = 0;
-        int high = nums.length -1 ;
-        ArrayList<Integer> indexVal= new ArrayList<Integer>();
-        BinarySearchR(low,high,nums,target);
+    public static int[] searchRange(int[] nums, int target) {
+        if (nums.length == 0) return new int[]{-1, -1};
 
-        return  indexVal;
-
-    }
-    public  static  void BinarySearchR(int start, int end , int[] num, int target){
-        while(start<end){
-            int mid = (start +end)/2;
-            if(target >num[mid]) BinarySearchR(mid,end,num,target);
-            if(target<num[mid])  BinarySearchR(start,mid,num,target);
-            if(target == num[mid]){
-                System.out.println(mid);
-             if(mid+1<end)   BinarySearchR(mid+1,end,num,target);
-             if(mid-1>start)   BinarySearchR(start,mid-1,num,target);
+        //主要左边界
+        int start = 0, end = nums.length - 1, mid = 0;
+        int[] bound = {0, 0};
+        //偏移到临界点
+        while (start + 1 < end) {
+            mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                end = mid;
+            } else if (nums[mid] < target) {
+                start = mid;
+            } else {
+                end = mid;
             }
-
         }
+        //根据临界点进行赋值
+        if (nums[start] == target) {
+            bound[0] = start;
+        } else if (nums[end] == target) {
+            bound[0] = end;
+        } else {
+            bound[0] = bound[1] = -1;
+            return bound;
+        }
+
+        //偏移到临界点
+        start = 0;
+        end = nums.length - 1;
+        while (start + 1 < end) {
+            mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                start = mid;
+            } else if (nums[mid] < target) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+        //根据临界点进行赋值
+        if (nums[end] == target) {
+            bound[1] = end;
+        } else if (nums[start] == target) {
+            bound[1] = start;
+        } else {
+            bound[0] = bound[1] = -1;
+            return bound;
+        }
+        return bound;
+
+
     }
 
-    public static void main(String[] args){
-        int[] nums = {5, 7, 7, 8,8, 8, 10};
-        int target = 8 ;
-        List<Integer> range= searchRange(nums,target);
+
+    public static void main(String[] args) {
+        int[] nums = {5, 7, 7, 8, 8, 8, 8, 8, 8, 10};
+        int target = 8;
+        int[] bound = searchRange(nums, target);
+        for (int val : bound) {
+            System.out.println(val);
+        }
 
     }
 
