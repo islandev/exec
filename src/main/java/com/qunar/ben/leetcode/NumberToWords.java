@@ -45,15 +45,15 @@ public class NumberToWords {
 
     public  final  static  HashMap<Integer,String> unitMap = new HashMap<Integer, String>(){
         {
-            put(0,"hundred");
-            put(1,"thousand");
-            put(2,"billion");
-            put(3,"million");
+            put(0,"Hundred");
+            put(1,"Thousand");
+            put(2,"Million");
+            put(3,"Billion");
         }
     };
 
     public  static  String  number2String(int num){
-        if(num==0) return numberMap.get(num);
+        if(num==0) return "Zero";
 
         int tmp=0;
         int unit=0;
@@ -74,17 +74,17 @@ public class NumberToWords {
             num=num%(int)Math.pow(10,3);
         }
         sb.append(transfer(num));
-        return  sb.toString();
+        return  sb.toString().trim();
     }
     public static  StringBuilder transfer(int num){
 
         StringBuilder sb = new StringBuilder();
         if(num/100!=0) {
-            sb.append(numberMap.get(num / 100)).append(" ").append("hundred").append(" ");
+            sb.append(numberMap.get(num / 100)).append(" ").append("Hundred").append(" ");
             num = num%100;
         }
         if(num/10>1){
-            sb.append(numberMap.get(num/10*10)).append(" ").append(numberMap.get(num%10)).append(" ");
+            sb.append(numberMap.get(num/10*10)).append(" ").append(numberMap.get(num%10));
         }else if(num/10<=1){
             sb.append(numberMap.get(num));
         }
