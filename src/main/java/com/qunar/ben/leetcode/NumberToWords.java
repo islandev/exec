@@ -25,10 +25,10 @@ public class NumberToWords {
 
     public  final  static  HashMap<Integer,String> unitMap = new HashMap<Integer, String>(){
         {
-            put(1,"hundred");
-            put(2,"thousand");
-            put(3,"billion");
-            put(4,"million");
+            put(0,"hundred");
+            put(1,"thousand");
+            put(2,"billion");
+            put(3,"million");
         }
     };
 
