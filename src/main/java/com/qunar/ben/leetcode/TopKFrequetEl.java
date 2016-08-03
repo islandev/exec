@@ -1,5 +1,7 @@
 package com.qunar.ben.leetcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -9,6 +11,15 @@ import java.util.List;
  */
 public class TopKFrequetEl {
     public List<Integer> topKFrequent(int[] nums, int k){
-        
+        List<Integer> result =  new ArrayList<>();
+        HashMap<Integer,Integer> countMap = new HashMap<>();
+        for(int val :nums){
+            if(countMap.containsKey(val)) countMap.put(val,countMap.get(val)+1);
+            else countMap.put(val,1);
+        }
+        List<Integer> countList = new ArrayList<>(countMap.values());
+        return  result;
     }
+
+
 }
