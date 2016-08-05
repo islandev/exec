@@ -17,9 +17,20 @@ public class TopKFrequetEl {
             if(countMap.containsKey(val)) countMap.put(val,countMap.get(val)+1);
             else countMap.put(val,1);
         }
-        List<Integer> countList = new ArrayList<>(countMap.values());
+
         return  result;
     }
 
+    public int[] initMaxHeap(int[] array){
+        int  nodeIndex = (array.length-1)>>1;
+        for(int i=nodeIndex;i>=0;i--){
+            maxHeapify(array,array.length,i);
+        }
+        return array;
+    }
+
+    public  static  void maxHeapify(int[] data, int l, int startIndex){
+
+    }
 
 }
