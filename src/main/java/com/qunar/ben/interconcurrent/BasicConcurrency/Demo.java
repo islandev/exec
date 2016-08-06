@@ -1,4 +1,4 @@
-package com.qunar.ben.interconcurrent;
+package com.qunar.ben.interconcurrent.BasicConcurrency;
 
 /**
  * Created by ben on 16/8/5.
