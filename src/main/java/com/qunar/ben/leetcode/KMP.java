@@ -8,6 +8,15 @@ import java.util.*;
  * Created by ben on 2017/2/6.
  */
 public class KMP {
+
+    public  static  int[] makeNext(String dst){
+        int[] next =  new int[dst.length()];
+        int l = dst.length();
+        int k = 0;
+        next[0]=0;
+
+        return  next;
+    }
     public  static  int[]  GeneratePMT(String searchChar){
         int[] pmt =  new int[searchChar.length()];
         //存前缀
