@@ -12,9 +12,13 @@ public class KMP {
     public  static  int[] makeNext(String dst){
         int[] next =  new int[dst.length()];
         int l = dst.length();
-        int k = 0;
+        int k ,q;
         next[0]=0;
-
+        for (q = 1,k = 0; q < l; ++q){
+            while(k>0 && dst.charAt(k)!= dst.charAt(q) )  k = next[k-1];
+            if(dst.charAt(k) ==  dst.charAt(q))  k++;
+            next[q] = k;
+        }
         return  next;
     }
     public  static  int[]  GeneratePMT(String searchChar){
@@ -61,7 +65,7 @@ public class KMP {
     //00123401
 
     public   static  boolean StringMatcher(String src,String dst){
-        int[] pmt = GeneratePMT(dst);
+        int[] pmt = makeNext(dst);
         int m = src.length();
         int n = dst.length();
         for(int i=0,j=0; i<m; ++i){
@@ -73,10 +77,13 @@ public class KMP {
     }
     public static void main(String[] args) {
         String  src =  "ABCDAB CD";
-        String dst = "AB C";
-        boolean match  = StringMatcher(src,dst);
-        System.out.println(match);
+        String dst = "ABC";
+        for (int i: makeNext(src)
+             ) {
+                System.out.print(i);
+        }
 
+        System.out.println(StringMatcher(src,dst));
 
     }
 }
