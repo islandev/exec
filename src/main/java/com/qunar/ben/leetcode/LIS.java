@@ -1,7 +1,7 @@
 package com.qunar.ben.leetcode;
 
 /**
- * Created by ben on 2017/2/8.
+ * Created by ben on 2017 /2/8.
  * 最长递增子序列
  */
 public class LIS {
