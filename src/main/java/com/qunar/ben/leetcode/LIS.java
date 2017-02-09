@@ -26,9 +26,10 @@ public class LIS {
 
     public  static  int LISOpt(int[] arr){
         int l = arr.length;
-        int[] b = new int[l];
+        int[] b = new int[l+1];
         b[0] = arr [0];
         int lis =0;
+        int  lb = 0;
         for (int i=1;i<l;i++){
 
         }
