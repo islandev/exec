@@ -1,6 +1,5 @@
 package com.qunar.ben.leetcode;
 
-import scala.actors.SuspendActorControl;
 
 import java.util.*;
 

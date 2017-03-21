@@ -1,6 +1,5 @@
 package com.qunar.ben.leetcode;
 
-import scala.math.Ordering;
 
 import java.util.HashMap;
 import java.util.Random;
