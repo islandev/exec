@@ -36,7 +36,7 @@ public class MSW {
     return head;
   }
 
-  public   ListNode reverseNOde(ListNode head){
-
+  public ListNode reverseNOde(ListNode head) {
+    return head;
   }
 }
