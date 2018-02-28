@@ -31,6 +31,6 @@ public class ErectFence {
   }
 
   private double getDistance(Point o, Point cur) {
-    return Math.sqrt(Math.pow(o.x - cur.x, 2) + Math.pow(o.x - cur.y, 2));
+    return Math.sqrt(Math.pow(o.x - cur.x, 2) + Math.pow(o.y - cur.y, 2));
   }
 }
