@@ -3,30 +3,35 @@ package com.qunar.ben.sortalg;
 /**
  * Created by ben on 2017/2/10.
  */
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
-import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
-class TopNMapper extends  Mapper{
-    private final  static  IntWritable one = new IntWritable(1);
-    private  Text word = new Text();
 
 
-    protected void map(Object key, Text value, Context context){
-
-    }
-}
 public class topn {
 
+    public static void main(String[] args) {
+        int[] a = {4,6,2,5,6,8,7,9,1};
+        qucikSort(a,0,a.length-1);
+        for (int val: a
+             ) {
+            System.out.println(val);
+        }
+    }
+
+    public static  void  qucikSort(int[] a, int low, int high){
+        int start=low;;
+        int end = high;
+        int p = a[low];
+        if(low<high){
+            while(low<high){
+
+            while(low<high&&a[high]>=p) high--;
+            a[low]=a[high];
+            while(low>high&&a[low]<=p) low++;
+            a[high]=a[low];
+        }
+        a[low]=p;
+        qucikSort(a,start,low-1);
+        qucikSort(a,low+1,end);
+        }
+    }
 }
+
