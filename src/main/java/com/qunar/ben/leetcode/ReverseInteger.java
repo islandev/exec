@@ -12,6 +12,11 @@ public class ReverseInteger {
 
   private static final Logger logger = LoggerFactory.getLogger(ReverseInteger.class);
 
+  /**
+   * 主要是考虑溢出的 不相等 代表溢出 return 0
+   * @param x
+   * @return
+   */
   public static int reverse(int x) {
     int res = 0;
     while (x != 0) {

@@ -15,22 +15,44 @@ public class RoamNumber {
 
 
   public int romanToInt(String s) {
-    HashMap<String, Integer> roamMap = new HashMap<String, Integer>() {
+    HashMap<Character, Integer> roamMap = new HashMap<Character, Integer>() {
       {
-        put("M", 1000);
-        put("D", 500);
-        put("C", 100);
-        put("L", 50);
-        put("X", 10);
-        put("V", 5);
-        put("I", 1);
+        put('M' , 1000);
+        put('D' , 500);
+        put('C' , 100);
+        put('L' , 50);
+        put('X' , 10);
+        put('V' , 5);
+        put('I' , 1);
       }
     };
     int roamVal = 0;
     char[] chars = s.toCharArray();
     int length = chars.length;
-    for (int i=0;i<length;i++){
+    int count = 0;
+    while (count < length) {
+      switch (chars[count]) {
+        case 'M':
+        case 'D':
+        case 'L':
+        case 'V':
+          roamVal += roamMap.get(chars[count]);
+          count++;
+          break;
+        case 'C':
+        case 'X':
+        case 'I':
+          Integer curVal = roamMap.get(chars[count]);
+          Integer nextVal;
+          if (count + 1 < length && (nextVal = roamMap.get(chars[count + 1])) > curVal) {
+            roamVal += (nextVal - curVal);
+            count += 2;
+          } else {
+            roamVal += curVal;
+            count++;
+          }
 
+      }
     }
     return roamVal;
   }
