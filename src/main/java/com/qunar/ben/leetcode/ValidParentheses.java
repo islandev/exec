@@ -48,6 +48,12 @@ public class ValidParentheses {
     System.out.printf(String.valueOf(isValid("()")));
   }
 
+  /**
+   * Do not allocate extra space for another array,
+   * you must do this by modifying the input array in-place with O(1) extra memory.
+   * @param nums
+   * @return
+   */
   public int removeDuplicates(int[] nums) {
 
     return 0;
