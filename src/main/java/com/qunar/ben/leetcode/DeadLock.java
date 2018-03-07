@@ -2,7 +2,9 @@ package com.qunar.ben.leetcode;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import org.slf4j.Logger;
@@ -55,7 +57,22 @@ public class DeadLock {
     return -1;
   }
 
+
+  public List<Integer> removeList(List<Integer> src, List<Integer> dst) {
+    src.removeAll(dst);
+    Iterator<Integer> iterator = src.iterator();
+    while (iterator.hasNext()) {
+      Integer next = iterator.next();
+      if (dst.contains(next)) {
+        iterator.remove();
+        dst.remove(next);
+      }
+    }
+    return src;
+  }
+
   public static void main(String[] args) {
+
     String[] dead = new String[]{"0201", "0101", "0102", "1212", "2002"};
     String target = "0202";
     System.out.println(openLock(dead, target));
