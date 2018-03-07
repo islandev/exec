@@ -6,5 +6,7 @@ package com.qunar.ben.httpdemo;
  */
 public class NioSocket
 {
-
+    public static void main(String[] args){
+        System.out.println("a");
+    }
 }
