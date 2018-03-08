@@ -45,17 +45,45 @@ public class ValidParentheses {
   }
 
   public static void main(String[] args) {
-    System.out.printf(String.valueOf(isValid("()")));
+    int[] nums = {1, 1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+    //   System.out.printf(String.valueOf(isValid("()")));
+    System.out.printf(String.valueOf(removeDuplicates(nums)));
   }
 
   /**
    * Do not allocate extra space for another array,
    * you must do this by modifying the input array in-place with O(1) extra memory.
-   * @param nums
-   * @return
    */
-  public int removeDuplicates(int[] nums) {
+  public static int removeDuplicates(int[] nums) {
+    if (nums == null || nums.length == 0) {
+      return 0;
+    }
+    int pointer = 1;
+    int currentVal = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      int num = nums[i];
+      if (num != currentVal) {
+        nums[pointer++] = num;
+        currentVal = num;
+      }
+    }
 
-    return 0;
+    return pointer;
   }
+
+
+  public int removeElement(int[] nums, int val) {
+    if (nums == null || nums.length == 0) {
+      return 0;
+    }
+    int res = 0;
+    for (int i = 0; i < nums.length; i++) {
+      int num = nums[i];
+      if (num != val) {
+        nums[res++] = num;
+      }
+    }
+    return res;
+  }
+
 }
